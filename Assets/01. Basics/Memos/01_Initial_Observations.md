@@ -239,7 +239,7 @@ Render Path는 오브젝트의 조명 및 셰이딩과 관련된 일련의 작�
 
 ---
 ## 1.1.3. Forward Rendering.
-Forward는 기본 렌더링 경로이다. 여기서 머테리얼의 모든 일반적인 기능 (노멀맵, 개별 픽셀 조명 (Illumination), 그림자 등)을 지원한다. 이 렌더링 경로에는 셰이더에서 사용할 수 있는 두 가지 경로 (코드 작성)가 있는데, 첫 번째 **base pass**와 두 번째 **additional pass**가 있다.
+Forward는 디폴트 렌더링 경로이다. 여기서 머테리얼의 모든 일반적인 기능 (노멀맵, 개별 픽셀 조명 (Illumination), 그림자 등)을 지원한다. 이 렌더링 경로에는 셰이더에서 사용할 수 있는 두 가지 경로 (코드 작성)가 있는데, 첫 번째 **base pass**와 두 번째 **additional pass**가 있다.
 
 base pass에서 **ForwardBase Light Mode**를 정의할 수 있다. additional pass에서는 추가 라이팅 계산을 위한 "**ForwardAdd Light Mode**"를 정의할 수 있다. 두 가지 모두 라이팅 계산이 포함된 셰이더의 특별한 함수이다. base pass는 픽셀 단위로 Directional Light를 처리할 수 있으며, 씬에 Directional Light가 여러 개 있는 경우, 가장 밝은 Light에 우선 순위를 둔다! 또한 base pass는 Light Probes, Global Illumination, 그리고 Ambient Illumination (Sky light)를 처리할 수 있다.
 
@@ -271,5 +271,78 @@ Deferred Shading은 여러 광원을 계산할 때 있어 Forward 방식보다 �
 
 ---
 ## 1.1.5. 추천 렌더 파이프라인
-과거엔 Built-in RP만 있었기에, 프로젝트를 시작하기 쉬웠다. 하지만 지금은 좀 다르다.
-1. 일반적으로 PC는 모바일 기기나 콘솔보다 컴퓨팅 성능이 뛰어나다. 즉, 하이엔드 기기를 대상으로 하는 경우에는 High
+과거엔 Built-in RP만 있었기에, 프로젝트를 시작하기 쉬웠다. 하지만 지금은 좀 다르다. 2d, 3d 여부와 관계 없이.. 렌더 파이프라인을 구축하던 과거와 달리, 요즘은 최종 개발할 게임의 퀄리티와 디바이스를 고려해야 한다.
+
+Shader Graph는 버전업에 따라 자꾸 내용이 바뀔 것이다. HLSL을 통해 작성하는 것을 익히는 것이 훨씬 도움될 것이다.
+
+---
+## 1.1.6. 행렬과 좌표 시스템
+셰이더를 만들 때 자주 등장하는 개념 중 하나는 행렬이다. 행렬은 특정 산술 규칙을 따르는 숫자 요소의 목록으로, 컴퓨터 그래픽스에서 자주 사용된다. 
+
+Unity에서 매트릭스는 공간 변환을 나타내며, 그 중에는 다음과 같은 것이 있다:
+- UNITY_MATRIX_MVP
+- UNITY_MATRIX_MV
+- UNITY_MATRIX_V
+- UNITY_MATRIX_P
+- UNITY_MATRIX_VP
+- UNITY_MATRIX_T_MV
+- UNITY_MATRIX_IT_MV
+- unity_ObjectToWorld
+- unity_WorldToObject
+
+이들은 전부 4x4 행렬이다.
+
+```C
+UNITY_MATRIX
+(
+	Xx, Yx, Zx, Tx,
+	Xy, Yy, Zy, Ty,
+	Xz, Yz, Zz, Tz,
+	Xt, Yt, Zt, Tw,
+);
+```
+
+폴리곤 오브젝트에는 두 개의 노드가 있다. (Transform, Shape)
+이들은 오브젝트의 중심 위치를 기준으로 Object 공간에서 Vertex의 위치를 계산한다.
+
+오브젝트의 각 Vertex의 Final value에는 Model Maxrix (UNITY_MATRIX_M)라는 행렬이 곱해지며, 이를 통해 변환, 회전 및 스케일 값을 수정할 수 있다.
+
+여기서 채널 `W`는 Vector와 Point를 균일하게 처리할 수 있는 Homogeneous 좌표계에 해당한다. 행렬 변환에서 W좌표는 0 또는 1이다. 만약 `w` 값이 1이면 공간의 한 점을 의미하고, 0이면 방향을 나타낸다.
+
+행렬과 관련하여 고려해야 할 점은, 첫 번째 행렬의 행 수와 두 번째 행렬의 열 수가 같아야만 곱셈이 가능하다는 점이다.
+
+여기서 모델 행렬은 4행4열의 차원을 갖고, 정점의 위치는 4행 1열의 차원을 갖는다.
+모델 행렬의 열 수와 정점 위치의 행 수가 같으므로, 이들의 곱은 4행 1열이 된다. 이는 정점의 새로운 위치를 정의하게 된다. 이러한 곱셈 프로세스는 오브젝트의 모든 정점에 대해 발생하며, Vertex Shader Stage에서 수행된다.
+
+여기까지가 Object 공간 자체 중심에 따른 Vertex 위치를 의미한다.
+그렇다면, World 공간, View 공간 또는 Clip 공간은 무엇을 의미할까?
+
+### World Space
+월드의 중심에 따른 Vertex의 위치, 즉, 씬의 Grid 시작점 (0X, 0Y, 0Z, 1W)과 오브젝트의 Vertex Position 사이의 거리에 해당한다.
+
+Object 공간에서 World 공간으로 좌표를 변환하기 위해서는 내부 변수, `unity_ObjectToWorld`를 사용하면 된다.
+
+### View Space
+뷰 공간은 카메라 뷰를 기준으로, Object의 Vertex 위치를 나타낸다. 월드 공간에서 뷰 공간으로 좌표를 변환하려면, `UNITY_MATRIX_V` 행렬을 사용하면 된다.
+
+### Projection Space
+투영 공간이라 하는 Clip 공간은 카메라의 Frustum에 대한 오브젝트 Vertex 위치를 나타낸다. 따라서 이 요소는 Near Clipping Plane, Far Clipping Plane, 그리고 Field of View의 영향을 받는다.
+
+공간 좌표를 View 공간에서 Clip 공간으로 변환하려면, `UNITY_MATRIX_P` 행렬을 사용하면 된다.
+
+### 변환 행렬
+내장 셰이더 변수, `UNITY_MATRIX_MVP`는 세 가지 다른 행렬의 곱셈을 나타낸다. 
+- M: 모델 행렬
+- V: 뷰 행렬
+- P: 투영 행렬
+
+이 행렬은 주로 Object Vertex를 오브젝트 공간에서 클립 공간으로 변환하는데 사용한다.
+
+폴리곤 객체는 3d 환경에서 생성되고, 투사될 컴퓨터 화면은 2차원이라 객체를 한 공간에서 다른 공간으로 변환해야 한다는 점을 기억하자.
+
+여기서는 셰이더에 포함된 Vertex Shader Stage의 `UNITYObjectToClipPos ( VRG )` 함수를 사용할 때 다시 제대로 볼 것이다!
+
+
+---
+
+… 위 내용들 전반적으로 다시 정리해야 할 것…
