@@ -4,5 +4,8 @@
   "nativeMenus": false,
   "enabledCssSnippets": [
     "style"
-  ]
+  ],
+  "baseFontSize": 15,
+  "showRibbon": false,
+  "showViewHeader": false
 }

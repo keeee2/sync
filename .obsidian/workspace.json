@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01. unity/01. shader/01. intro/01. 셰이더 훑어보기.md",
+                "file": "01. unity/01. shader/01. intro/01. 선행 지식 정리.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "01. 셰이더 훑어보기"
+              "title": "01. 선행 지식 정리"
             }
           }
         ]
@@ -70,8 +70,13 @@
   },
   "active": "8e87d0404ce22653",
   "lastOpenFiles": [
+    "01. unity/01. shader/01. intro/resources/Pasted image 20250224010555.png",
+    "01. unity/01. shader/01. intro/resources/Pasted image 20250224001757.png",
+    "01. unity/01. shader/01. intro/resources/Pasted image 20250223233400.png",
+    "01. unity/01. shader/01. intro/resources/Pasted image 20250223232155.png",
+    "01. unity/01. shader/01. intro/resources",
     "Template/일반 문서 템플릿.md",
-    "01. unity/01. shader/01. intro/01. 셰이더 훑어보기.md",
+    "01. unity/01. shader/01. intro/01. 선행 지식 정리.md",
     "01. Unity Engine/01. Shaders Bible/01. Intro/01. Initial Observations.md",
     "Template/무제.md",
     "Template",

@@ -55,3 +55,8 @@
 .markdown-source-view.mod-cm6 .cm-sizer {
     font-family: 'RIDIBatang-subset', 'D2Coding';
 }
+
+img {
+    width: 80%;
+    height: auto;
+}
