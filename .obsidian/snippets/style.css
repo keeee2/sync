@@ -1,0 +1,57 @@
+.markdown-source-view.mod-cm6 .cm-line,
+.markdown-preview-view p {
+    line-height: 150% !important;
+}
+
+.markdown-source-view :is(.cm-line + .cm-line) {
+    padding-top: 0.5em !important;
+}
+
+@font-face {
+    font-family: 'RIDIBatang-subset';
+    src: url('http://cdn.jsdelivr.net/gh/TetraTheta/RIDIBatang-subset/dist/webfont/RIDIBatang-subset.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.markdown-preview-section,
+.markdown-source-view.mod-cm6 .cm-sizer {
+    font-family: 'RIDIBatang-subset';
+}
+
+@font-face {
+    font-family: 'D2Coding';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('D2Coding ligature Bold'),
+        url('https://cdn.jsdelivr.net/gh/wan2land/d2coding/fonts/d2coding-ligature-bold-full.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/wan2land/d2coding/fonts/d2coding-ligature-bold-full.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/wan2land/d2coding/fonts/d2coding-ligature-bold-full.ttf') format('truetype');
+    unicode-range: U+0041-005A, U+0061-007A;
+}
+
+@font-face {
+    font-family: 'D2Coding';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('D2Coding ligature Regular'),
+        url('https://cdn.jsdelivr.net/gh/wan2land/d2coding/fonts/d2coding-ligature-full.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/wan2land/d2coding/fonts/d2coding-ligature-full.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/wan2land/d2coding/fonts/d2coding-ligature-full.ttf') format('truetype');
+    unicode-range: U+0041-005A, U+0061-007A;
+}
+
+@font-face {
+    font-family: 'RIDIBatang-subset';
+    src: url('http://cdn.jsdelivr.net/gh/TetraTheta/RIDIBatang-subset/dist/webfont/RIDIBatang-subset.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range: U+AC00-D7A3;
+}
+
+.markdown-preview-section,
+.markdown-source-view.mod-cm6 .cm-sizer {
+    font-family: 'RIDIBatang-subset', 'D2Coding';
+}

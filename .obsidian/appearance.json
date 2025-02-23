@@ -1,4 +1,8 @@
 {
-  "cssTheme": "Blue Topaz",
-  "accentColor": "#b7247a"
+  "cssTheme": "Obsidianite",
+  "accentColor": "",
+  "nativeMenus": false,
+  "enabledCssSnippets": [
+    "style"
+  ]
 }

@@ -1,4 +1,6 @@
 {
   "attachmentFolderPath": "./resources",
-  "newFileLocation": "current"
+  "newFileLocation": "current",
+  "spellcheck": false,
+  "vimMode": false
 }
