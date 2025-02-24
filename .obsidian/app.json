@@ -4,5 +4,7 @@
   "spellcheck": false,
   "vimMode": false,
   "showInlineTitle": true,
-  "promptDelete": false
+  "promptDelete": false,
+  "alwaysUpdateLinks": true,
+  "showLineNumber": false
 }
