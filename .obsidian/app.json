@@ -3,5 +3,6 @@
   "newFileLocation": "current",
   "spellcheck": false,
   "vimMode": false,
-  "showInlineTitle": true
+  "showInlineTitle": true,
+  "promptDelete": false
 }
