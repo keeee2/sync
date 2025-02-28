@@ -103,8 +103,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "templates:템플릿 삽입": false,
-      "graph:그래프 뷰 열기": false
+      "templates:템플릿 삽입": false
     }
   },
   "active": "e6641ad12d34da51",
