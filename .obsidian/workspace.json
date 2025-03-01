@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "23b6efc1c98e6328",
+        "id": "40a945b2f8b68d8e",
         "type": "tabs",
         "children": [
           {
-            "id": "c89b482400e62efa",
+            "id": "478fa027595c3741",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01. unity/01. shader/01. intro/01. 선행 지식 정리.md",
+                "file": "Quick Memo.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "01. 선행 지식 정리"
+              "title": "Quick Memo"
             }
           }
         ]
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "d6fcd6b226423813",
@@ -86,13 +85,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "01. unity/01. shader/01. intro/01. 선행 지식 정리.md",
+                "file": "Quick Memo.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "01. 선행 지식 정리 의 개요"
+              "title": "Quick Memo 의 개요"
             }
           }
         ]
@@ -107,13 +106,14 @@
       "templates:템플릿 삽입": false
     }
   },
-  "active": "c89b482400e62efa",
+  "active": "478fa027595c3741",
   "lastOpenFiles": [
+    "01. unity/01. shader/01. intro/01. 선행 지식 정리.md",
+    "Quick Memo.md",
     "01. unity/01. shader/01. intro/resources/Pasted image 20250301170449.png",
     "01. unity/01. shader/01. intro/resources/Pasted image 20250301170013.png",
     "01. unity/01. shader/01. intro/resources/Pasted image 20250301164930.png",
     "01. unity/01. shader/01. intro/i..md",
-    "01. unity/01. shader/01. intro/01. 선행 지식 정리.md",
     "01. unity/01. shader/01. intro/resources/Pasted image 20250301143727.png",
     "01. unity/01. shader/01. intro/resources/Pasted image 20250301143553.png",
     "Quick Memo.md",
@@ -124,7 +124,6 @@
     "01. unity/01. shader/01. intro/resources/Pasted image 20250224231836.png",
     "01. unity/01. shader/01. intro/resources/Pasted image 20250223232155.png",
     "01. unity/01. shader/01. intro/resources/Pasted image 20250224230005.png",
-    "01. unity/01. shader/01. intro/resources/Pasted image 20250224225008.png",
     "template/일반 문서 템플릿.md",
     "01. unity/01. shader/01. intro/resources",
     "01. Unity Engine/01. Shaders Bible/01. Intro/01. Initial Observations.md",
