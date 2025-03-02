@@ -5,7 +5,7 @@
   "enabledCssSnippets": [
     "style"
   ],
-  "baseFontSize": 15,
+  "baseFontSize": 16,
   "showRibbon": false,
   "showViewHeader": false
 }
