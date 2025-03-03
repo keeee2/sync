@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01. unity/01. shader/01. intro/02. 유니티 셰이더.md",
+                "file": "01. unity/01. shader/01. intro/03..md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "02. 유니티 셰이더"
+              "title": "03."
             }
           }
         ],
@@ -125,16 +125,16 @@
   },
   "active": "911b4d6db7d55fce",
   "lastOpenFiles": [
-    "utils/temporary.md",
     "01. unity/01. shader/01. intro/02. 유니티 셰이더.md",
+    "01. unity/01. shader/01. intro/03..md",
+    "utils/temporary.md",
+    "01. unity/01. shader/01. intro/resources/Pasted image 20250302155056.png",
+    "01. unity/01. shader/01. intro/resources/Pasted image 20250301170449.png",
+    "01. unity/01. shader/01. intro/01. 선행 지식 정리.md",
     "utils/special characters.md",
     "utils",
-    "01. unity/01. shader/01. intro/01. 선행 지식 정리.md",
     "template/(template) general docs.md",
-    "01. unity/01. shader/01. intro/무제.md",
-    "01. unity/01. shader/01. intro/resources/Pasted image 20250302155056.png",
     "template/무제.md",
-    "01. unity/01. shader/01. intro/resources/Pasted image 20250301170449.png",
     "01. unity/01. shader/01. intro/resources/Pasted image 20250301170013.png",
     "01. unity/01. shader/01. intro/resources/Pasted image 20250301164930.png",
     "01. unity/01. shader/01. intro/i..md",
